@@ -1,5 +1,5 @@
 name: global env
-on: push
+# on: push
 env:
   SAMPLE: "sample"
 jobs:
