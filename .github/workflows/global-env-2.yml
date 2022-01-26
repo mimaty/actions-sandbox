@@ -1,0 +1,22 @@
+name: global env
+on: push
+env:
+  SAMPLE: "sample"
+jobs:
+  set-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Env
+        run: echo "DATE=$(date +%s)" >> $GITHUB_ENV
+  echo-1:
+    needs: set-env
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test 1
+        run: echo ${{ env.DATE }}
+  echo-2:
+    needs: set-env
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test 2
+        run: echo ${{ env.DATE }}
