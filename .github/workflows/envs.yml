@@ -1,5 +1,8 @@
 name: envs
-on: [workflow_dispatch]
+on:
+  pull_request:
+    branches:
+      - "test/**"
 jobs:
   job1:
     runs-on: ubuntu-latest
