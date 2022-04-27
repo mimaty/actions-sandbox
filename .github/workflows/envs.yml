@@ -2,7 +2,7 @@ name: envs
 on:
   push:
     branches:
-      - test/**
+      - "test/**"
 jobs:
   job1:
     runs-on: ubuntu-latest
