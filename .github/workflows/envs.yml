@@ -40,7 +40,14 @@ jobs:
           echo $RUNNER_TEMP
           echo $RUNNER_TOOL_CACHE
   job2:
+    runs-on: ubuntu-latest
     if: ${{ ! failure() }}
+    needs: job1
+    steps:
+      - run: echo 'success'
+  job3:
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
     needs: job2
-    step:
-      run: echo 'success'
+    steps:
+      - run: echo 'skip'
