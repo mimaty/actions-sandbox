@@ -41,6 +41,6 @@ jobs:
           echo $RUNNER_TOOL_CACHE
   job2:
     if: ${{ ! failure() }}
-    needs: job2
+    needs: job1
     steps:
-      run: echo 'success'
+      - run: echo 'success'
