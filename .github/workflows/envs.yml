@@ -42,5 +42,5 @@ jobs:
   job2:
     if: ${{ ! failure() }}
     needs: job2
-    step:
+    steps:
       run: echo 'success'
