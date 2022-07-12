@@ -1,0 +1,31 @@
+name: TypeScript diff
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        type: string
+        default: "main"
+        required: false
+        description: "Base (branch or commit hash)"
+
+jobs:
+  typescript-diff:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - run: git rev-parse HEAD
+
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.ref }}
+
+      - run: git rev-parse HEAD
