@@ -10,11 +10,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-          fetch-depth: 0
 
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.ref }}
+          fetch-depth: 0
 
       - run: git rev-parse HEAD
 
