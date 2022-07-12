@@ -1,0 +1,16 @@
+name: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "input message"
+        required: false
+        default: "no message"
+        type: string
+env:
+  MESSAGE: ${{ inputs.message }}
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo "MESSAGE: $MESSAGE"'
