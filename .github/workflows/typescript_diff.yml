@@ -1,13 +1,6 @@
 name: TypeScript diff
 
-on:
-  workflow_dispatch:
-    inputs:
-      ref:
-        type: string
-        default: "main"
-        required: false
-        description: "Base (branch or commit hash)"
+on: workflow_dispatch
 
 jobs:
   typescript-diff:
@@ -24,8 +17,11 @@ jobs:
 
       - run: git rev-parse HEAD
 
+      - run: echo ::set-output name=commit::$(git merge-base main $GITHUB_REF)
+        id: ref
+
       - uses: actions/checkout@v3
         with:
-          ref: ${{ inputs.ref }}
+          ref: ${{ steps.ref.outputs.commit }}
 
       - run: git rev-parse HEAD
