@@ -22,6 +22,8 @@ jobs:
 
       - run: git branch -l
 
+      - run: git merge-base origin/main $GITHUB_REF
+
       - run: echo ::set-output name=commit::$(git merge-base origin/main $GITHUB_REF)
         id: ref
 
