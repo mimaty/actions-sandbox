@@ -18,6 +18,8 @@ jobs:
 
       - run: git rev-parse HEAD
 
+      - run: git branch -l
+
       - run: echo ::set-output name=commit::$(git merge-base main $GITHUB_REF)
         id: ref
 
