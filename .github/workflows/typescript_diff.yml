@@ -19,7 +19,9 @@ jobs:
 
       - run: git fetch origin main
 
-      - run: echo ::set-output name=commit::$(git merge-base main $GITHUB_REF)
+      - run: git branch -l
+
+      - run: echo ::set-output name=commit::$(git merge-base origin/main $GITHUB_REF)
         id: ref
 
       - uses: actions/checkout@v3
