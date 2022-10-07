@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "semicolon": "echo semi; echo colon;"
+  },
   "devDependencies": {
     "prettier": "^1.14.0"
   }
