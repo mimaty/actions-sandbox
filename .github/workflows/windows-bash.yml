@@ -8,6 +8,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: echo semi; echo colon;
+        shell: bash
       - run: npm run semicolon
         shell: bash
       - run: yarn run semicolon
