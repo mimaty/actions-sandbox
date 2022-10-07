@@ -9,6 +9,6 @@ jobs:
         with:
           node-version: 18
       - run: npm run semicolon
-        shell: zsh
+        shell: bash
       - run: yarn run semicolon
-        shell: zsh
+        shell: bash
