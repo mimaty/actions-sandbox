@@ -3,6 +3,6 @@
     "semicolon": "echo semi; echo colon;"
   },
   "devDependencies": {
-    "prettier": "^1.14.0"
+    "prettier": "^2.7.1"
   }
 }
