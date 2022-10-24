@@ -1,5 +1,9 @@
 name: envs
-on: pull_request
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
 jobs:
   job1:
     runs-on: ubuntu-latest
