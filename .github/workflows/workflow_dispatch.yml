@@ -2,6 +2,15 @@ name: workflow_dispatch
 on:
   workflow_dispatch:
     inputs:
+      test:
+        description: "Log level \n\n ⚠️ Danger ⚠️"
+        required: true
+        default: "warning"
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
       logLevel:
         description: "Log level"
         required: true
