@@ -13,7 +13,9 @@ jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo "MESSAGE: $MESSAGE"'
+      - run: 'echo "🚨 S3 upload: $S3_UPLOAD'
+      - run: |
+          echo "🚨 S3 upload: $S3_UPLOAD
       - run: |
           echo $GITHUB_ACTION
           echo $GitHub
