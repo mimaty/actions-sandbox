@@ -40,3 +40,7 @@ jobs:
           LEVEL: ${{ inputs.logLevel }}
           TAGS: ${{ inputs.tags }}
           ENVIRONMENT: ${{ inputs.environment }}
+      - name: curl
+        run: curl https://dev.miiteldevelopment.net/openapi/openapi.json -u ${{ secrets.DEV_BASIC_AUTH_ID }}:${{ secrets.DEV_BASIC_AUTH_PASSWORD }} -o openapi.json
+      - name: ls
+        run: ls
