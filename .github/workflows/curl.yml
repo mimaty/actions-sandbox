@@ -1,0 +1,10 @@
+name: curl
+on: workflow_dispatch
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: curl
+        run: curl https://dev.miiteldevelopment.net/openapi/openapi.json -u ${{ secrets.DEV_BASIC_AUTH_ID }}:${{ secrets.DEV_BASIC_AUTH_PASSWORD }} -o openapi.json
+      - run: ls
