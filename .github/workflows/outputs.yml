@@ -1,4 +1,4 @@
-name: global env
+name: Outputs
 on: [workflow_dispatch]
 env:
   USER: "Bob"
