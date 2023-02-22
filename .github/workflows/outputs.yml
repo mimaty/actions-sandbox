@@ -1,0 +1,14 @@
+name: global env
+on: [workflow_dispatch]
+env:
+  SAMPLE: "sample"
+jobs:
+  vars:
+    runs-on: ubuntu-latest
+    outputs:
+      user: ${{ env.USER }}
+  echo:
+    runs-on: ubuntu-latest
+    needs: vars
+    steps:
+      - run: echo ${{ needs.vars.outputs.user }}
