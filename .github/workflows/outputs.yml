@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       user: ${{ env.USER }}
+    steps:
+      - run: echo 'set vars!'
   echo:
     runs-on: ubuntu-latest
     needs: vars
