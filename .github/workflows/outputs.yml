@@ -1,7 +1,7 @@
 name: global env
 on: [workflow_dispatch]
 env:
-  SAMPLE: "sample"
+  USER: "Bob"
 jobs:
   vars:
     runs-on: ubuntu-latest
