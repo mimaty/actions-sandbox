@@ -1,0 +1,24 @@
+name: workflow_dispatch
+on: workflow_dispatch
+jobs:
+  env1:
+    runs-on: ubuntu-latest
+    environment:
+      name: "environment 1"
+      url: "https://github.com/"
+    steps:
+      - run: echo hello
+  env2:
+    runs-on: ubuntu-latest
+    environment:
+      name: environment-2
+      url: "https://github.com/"
+    steps:
+      - run: echo hello
+  env3:
+    runs-on: ubuntu-latest
+    environment:
+      name: environment 3
+      url: ${{ secrets.EMPTY }}
+    steps:
+      - run: echo hello
