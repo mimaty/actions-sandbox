@@ -25,10 +25,18 @@ jobs:
       url: ${{ env.URL }}
     steps:
       - run: echo hello
+  set:
+    name: Set env
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ env.NAME }}
+      url: ${{ env.URL }}
+    steps:
+      - run: echo "Exposing env vars"
   env4:
     runs-on: ubuntu-latest
     environment:
-      name: ${{ env.NAME }}
-      url: ${{ env.EMPTY }}
+      name: ${{ needs.set.outputs.name }}
+      url: ${{ needs.set.outputs.url }}
     steps:
       - run: echo hello
