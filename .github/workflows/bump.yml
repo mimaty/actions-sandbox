@@ -23,3 +23,5 @@ jobs:
           git config user.name "github-actions[bot]"
           npm version ${{ github.event.inputs.semver }}
       - uses: peter-evans/create-pull-request@v4
+        with:
+          branch: bump-${{ github.event.inputs.semver }}
