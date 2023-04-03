@@ -25,3 +25,5 @@ jobs:
       - uses: peter-evans/create-pull-request@v4
         with:
           branch: bump-${{ github.event.inputs.semver }}
+          title: Bump ${{ github.event.inputs.semver }} version
+          body: Automated changes by https://github.com/mimaty/actions-sandbox/actions/workflows/bump.yml
