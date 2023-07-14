@@ -1,0 +1,42 @@
+name: environment
+on: workflow_dispatch
+env:
+  NAME: name
+  URL: url
+jobs:
+  env1:
+    runs-on: ubuntu-latest
+    environment:
+      name: "environment 1"
+      url: "https://github.com/"
+    steps:
+      - run: echo hello
+  env2:
+    runs-on: ubuntu-latest
+    environment:
+      name: environment-2
+      url: "https://github.com/"
+    steps:
+      - run: echo hello
+  env3:
+    runs-on: ubuntu-latest
+    environment:
+      name: environment 3
+      url: ${{ env.URL }}
+    steps:
+      - run: echo hello
+  set:
+    name: Set env
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ env.NAME }}
+      url: ${{ env.URL }}
+    steps:
+      - run: echo "Exposing env vars"
+  env4:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ needs.set.outputs.name }}
+      url: ${{ needs.set.outputs.url }}
+    steps:
+      - run: echo hello
