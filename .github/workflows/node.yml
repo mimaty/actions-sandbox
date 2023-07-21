@@ -4,9 +4,17 @@ on: push
 
 jobs:
   bump:
+    env:
+      TEST: >
+        ${{
+          (github.ref_name == 'main' && 'm') ||
+          (github.ref_name == 'develop' && 'd') ||
+          (github.ref_name == 'production' && 'p')
+        }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 20
+      - run: echo $TEST
