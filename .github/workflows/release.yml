@@ -1,0 +1,13 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+        G_REF_NAME: ${{ github.ref_name }}
+    steps:
+        - run: echo ${{ env.G_REF_NAME }}
