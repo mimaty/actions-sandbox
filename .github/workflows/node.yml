@@ -19,3 +19,5 @@ jobs:
           node-version: 20
       - run: echo $TEST
       - run: echo TEST
+      - run: echo $TEST/hey
+      - run: echo yo/$TEST/hey
