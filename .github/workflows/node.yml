@@ -5,7 +5,7 @@ on: push
 jobs:
   bump:
     env:
-      TEST: >
+      TEST: >-
         ${{
           (github.ref_name == 'main' && 'm') ||
           (github.ref_name == 'develop' && 'd') ||
